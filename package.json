@@ -1,0 +1,27 @@
+{
+  "name": "my-ride",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sulenchy/My-Ride.git"
+  },
+  "keywords": [
+    "Javascript",
+    "Node",
+    "Express"
+  ],
+  "author": "sulenchy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sulenchy/My-Ride/issues"
+  },
+  "homepage": "https://github.com/sulenchy/My-Ride#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
