@@ -29,7 +29,7 @@ var rideOfferController = function () {
             _rideOfferHelper2.default.getAllRideOffer().then(function (offer) {
                 if (Object.keys(offer).length == 0) {
                     return res.status(404).json({
-                        message: 'no request available',
+                        message: 'No Ride Offer available',
                         status: 'fail'
                     });
                 }
@@ -37,18 +37,35 @@ var rideOfferController = function () {
                     data: {
                         request: Object.keys(offer).length
                     },
-                    message: 'request gotten successfully',
+                    message: 'Ride Offers gotten successfully',
                     status: 'success'
                 });
             }).catch(function (err) {
                 res.status(500).send(err.message);
             });
         }
-
-        // static getRideOfferById = (req,res) =>{
-
-        // }
-
+    }, {
+        key: 'getRideOfferById',
+        value: function getRideOfferById(req, res) {
+            var id = req.params.id;
+            _rideOfferHelper2.default.getRideOfferById(id).then(function (offer) {
+                if (Object.keys(offer).length == 0) {
+                    return res.status(404).json({
+                        message: 'No Ride Offer available',
+                        status: 'fail'
+                    });
+                }
+                return res.status(200).json({
+                    data: {
+                        offer: offer
+                    },
+                    message: 'Ride Offer gotten successfully',
+                    status: 'success'
+                });
+            }).catch(function (err) {
+                res.status(500).send('err.message ' + id);
+            });
+        }
     }]);
 
     return rideOfferController;

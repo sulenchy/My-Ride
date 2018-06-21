@@ -13,6 +13,7 @@ app.get('/', function(req, res) {
 
 app.use('/rides',rideOfferRouter);
 app.get('/rides', rideController.getAllRideOffer)
+app.get('/rides/:id', rideController.getRideOfferById)
 
 app.listen(3010, function() {
   console.log('Example app listening on port 3010!');

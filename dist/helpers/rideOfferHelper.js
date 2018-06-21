@@ -30,7 +30,15 @@ var rideOfferHelper = function () {
         key: 'getRideOfferById',
         value: function getRideOfferById(rideOfferId) {
             return new Promise(function (resolve, reject) {
-                resolve(_database2.default.rideOffer.rideOfferId);
+                resolve(_database2.default.rideOffer[rideOfferId]);
+            });
+        }
+    }, {
+        key: 'createNewRideOffer',
+        value: function createNewRideOffer(leaveTime, destination, transportFare) {
+            return new Promise(function (resolve, reject) {
+                var len = Object.keys(_database2.default.rideOffer).length + 1;
+                resolve(_database2.default.rideOffer['ride ' + len] = [{ leaveTime: '' + leaveTime, destination: '' + destination, transportFare: '' + transportFare }]);
             });
         }
     }]);

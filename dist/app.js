@@ -31,6 +31,7 @@ app.get('/', function (req, res) {
 
 app.use('/rides', _rideOffer2.default);
 app.get('/rides', _rideOffersController2.default.getAllRideOffer);
+app.get('/rides/:id', _rideOffersController2.default.getRideOfferById);
 
 app.listen(3010, function () {
   console.log('Example app listening on port 3010!');

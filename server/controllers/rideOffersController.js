@@ -28,7 +28,28 @@ export default class rideOfferController{
         });
     }
 
-    // static getRideOfferById = (req,res) =>{
-
-    // }
+    static getRideOfferById (req,res){
+        const id = req.params.id;
+        rideOfferHelper.getRideOfferById(id)
+            .then((offer) => {
+                if(Object.keys(offer).length == 0){
+                    return res.status(404)
+                    .json({
+                        message: 'No Ride Offer available',
+                        status: 'fail',
+                      });
+                }
+                return res.status(200)
+                .json({
+                    data: {
+                      offer,
+                    },
+                    message: 'Ride Offer gotten successfully',
+                    status: 'success',
+                  });
+            })
+            .catch((err) => {
+                res.status(500).send(`err.message ${id}`);
+            });
+    }
 }
