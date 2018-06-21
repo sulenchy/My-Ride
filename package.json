@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "mocha test/*.js --require babel-register --reporter spec || exit 0",
-    "build": "babel server -d server/dist",
+    "build": "babel server -d ./dist",
     "lint": "./node_modules/.bin/eslint server/app.js",
     "start": "babel-node server/app.js"
   },
@@ -33,7 +33,11 @@
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",
-    "eslint": "^4.19.1",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
     "mocha": "^5.2.0"
   }
 }
