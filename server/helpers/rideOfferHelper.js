@@ -9,7 +9,12 @@ export default class rideOfferHelper{
     
     static getRideOfferById  ( rideOfferId )  {
         return new Promise((resolve,reject)=>{
-            resolve(database.rideOffer[rideOfferId]);
+            let searchedRide = [];
+            database.rideOffer.filter(function(ride){
+                if(ride.rideId == rideOfferId)
+                return searchedRide.push(ride);
+            })
+            resolve(searchedRide[0]);
         });  
     }
     

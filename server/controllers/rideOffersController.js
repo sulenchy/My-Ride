@@ -32,7 +32,7 @@ export default class rideOfferController{
         const id = req.params.id;
         rideOfferHelper.getRideOfferById(id)
             .then((offer) => {
-                if(Object.keys(offer).length == 0){
+                if(offer === undefined){
                     return res.status(404)
                     .json({
                         message: 'No Ride Offer available',
@@ -49,7 +49,7 @@ export default class rideOfferController{
                   });
             })
             .catch((err) => {
-                res.status(500).send(`err.message ${id}`);
+                res.status(500).send(err.message);
             });
     }
 }
