@@ -4,12 +4,13 @@ import rideController from '../controllers/rideOffersController';
 
 const router = express.Router();
 
-router.get('/rides', function(req,res){
-    console.log("me");
+router.get('/', (req,res) =>{
+    res.status(200)
+    .send(`Welcome to my ride`);
 })
-//router.get('/rides', rideController.getAllRideOffer);
 
-
-//router.get('/rides/:id',rideController.getRideOfferById)
-
+router.get('/offers', rideController.getAllRideOffer);
+router.get('/:id',rideController.getRideOfferById)
+router.post('/create',rideController.createNewRideOffer)
+//router.post('/request/create',rideController.createRequestToJoinRide)
 export default router;

@@ -1,22 +1,21 @@
 import express from 'express';
 import logger from 'morgan';
+import bodyParser from 'body-parser';
 import rideOfferRouter from '../server/routes/rideOffer';
 import rideController from '../server/controllers/rideOffersController';
 
+
 const app = express();
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
 app.use(logger('dev'));
 
-app.get('/', function(req, res) {
-  res.send('Hello World!');
-});
-
-
-app.use('/rides',rideOfferRouter);
-app.get('/rides', rideController.getAllRideOffer)
-app.get('/rides/:id', rideController.getRideOfferById)
+app.use('/rideoffer',rideOfferRouter);
 
 app.listen(3010, function() {
-  console.log('Example app listening on port 3010!');
+  console.log('Listening on port 3010!');
 });
 
 

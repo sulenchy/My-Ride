@@ -18,13 +18,35 @@ export default class rideOfferHelper{
         });  
     }
     
-    static createNewRideOffer(leaveTime, destination,transportFare){
+    static createNewRideOffer(id, email, leaveTime, destination,transportFare, status){
         return new Promise((resolve,reject)=>{
-            const len  = Object.keys(database.rideOffer).length + 1;
-            resolve(database.rideOffer[`ride ${len}`] = [
-              {leaveTime:`${leaveTime}`, destination:`${destination}`, transportFare: `${transportFare}`}
-              ]);            
+            database.rideOffer.push(
+                { 
+                    rideId:id,
+                    email:email, 
+                    leaveTime: leaveTime, 
+                    destination: destination, 
+                    transportFare: transportFare, 
+                    status: status
+                });
+            resolve(
+                    database.rideOffer[database.rideOffer.length-1],
+                );        
         });
     }
+
+    // static requestToJoinRide(id, rideId, email, requestStatus){
+    //     return new Promise((resolve,reject)=>{
+    //         resolve(
+    //             database.request.push(
+    //                 {
+    //                     id:id,
+    //                     rideId:rideId, 
+    //                     email:email, 
+    //                     status:requestStatus
+    //                 }
+    //             ));        
+    //     });
+    // }
 }
 
