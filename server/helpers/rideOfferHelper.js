@@ -35,18 +35,20 @@ export default class rideOfferHelper{
         });
     }
 
-    // static requestToJoinRide(id, rideId, email, requestStatus){
-    //     return new Promise((resolve,reject)=>{
-    //         resolve(
-    //             database.request.push(
-    //                 {
-    //                     id:id,
-    //                     rideId:rideId, 
-    //                     email:email, 
-    //                     status:requestStatus
-    //                 }
-    //             ));        
-    //     });
-    // }
+    static createRequestToJoinRide(id, rideId, email, requestStatus){
+        return new Promise((resolve,reject)=>{
+             database.request.push(
+                {
+                    id:id,
+                    rideId:rideId, 
+                    email:email, 
+                    status:requestStatus
+                }
+            );
+            resolve(
+                database.request[database.request.length-1]
+                );        
+        });
+    }
 }
 

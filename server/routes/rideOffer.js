@@ -12,5 +12,6 @@ router.get('/', (req,res) =>{
 router.get('/offers', rideController.getAllRideOffer);
 router.get('/:id',rideController.getRideOfferById)
 router.post('/create',rideController.createNewRideOffer)
-//router.post('/request/create',rideController.createRequestToJoinRide)
+router.post('/request/create',rideController.createRequestToJoinRide)
+
 export default router;

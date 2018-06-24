@@ -79,19 +79,19 @@ export default class rideOfferController {
                 
     }
 
-    // static createRequestToJoinRide (req,res){
-    //     const {id,rideId, email,status} = req.body;
-    //     rideOfferHelper.createRequestToJoinRide(id,rideId,email,status)
-    //         .then((request => res.status(201) 
-    //                 .json({
-    //                     data:{
-    //                         Request: request.rows[0],
-    //                     },
-    //                     message: 'New request to join a new ride created successfully',
-    //                     status: 'success',
-    //                   }))                
-    //         .catch((err) => {
-    //             res.status(500).send(err.message);
-    //         }));
-    // }
+    static createRequestToJoinRide (req,res){
+        const {id,rideId, email,status} = req.body;
+        rideOfferHelper.createRequestToJoinRide(id,rideId,email,status)
+            .then((request) => res.status(201) 
+                    .json({
+                        data:{
+                            Request: request,
+                        },
+                        message: 'New request to join a new ride created successfully',
+                        status: 'success',
+                      }))                
+            .catch((err) => {
+                res.status(500).send(err.message);
+            });
+    }
 }
