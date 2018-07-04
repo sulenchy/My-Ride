@@ -2,8 +2,15 @@ import database from '../models/database';
 
 export default class rideOfferHelper{
     static getAllRideOffer () {
-        return new Promise((resolve,reject)=>{
-            resolve(database.rideOffer);
+        return new Promise((resolve, reject)=>{
+            let data = database.rideOffer;
+            if (data) {
+                resolve(data);
+            } else {
+                reject({
+                    message: 'Request unscuessful'
+                });
+            }
         });        
     };
     

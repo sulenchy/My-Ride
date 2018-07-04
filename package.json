@@ -4,10 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "mocha test/*.js --require babel-register --reporter spec || exit 0",
+    "test": "npm run build && mocha server/test/*.js --require babel-register --reporter spec || exit 0",
     "build": "babel server -d ./dist",
     "lint": "./node_modules/.bin/eslint server/app.js",
-    "start": "babel-node server/app.js"
+    "start": "npm run build && babel-node server/app.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
   "homepage": "https://github.com/sulenchy/My-Ride#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "chai-http": "^4.0.0",
     "express": "^4.16.3",
     "morgan": "^1.9.0"
   },

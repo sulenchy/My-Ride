@@ -7,24 +7,37 @@ export default class rideOfferController {
     static getAllRideOffer(req, res) {
         rideOfferHelper.getAllRideOffer()
             .then((offer) => {
-                if (Object.keys(offer).length == 0) {
-                    return res.status(404)
+                if (offer.length == 0) {
+                    return res.status(200)
                         .json({
-                            message: 'No Ride Offer available',
-                            status: 'fail',
+                            data: {
+                                Offers: offer,
+                                message: 'No Ride Offer available currently'
+                            },
+                            status: 'success',
                         });
                 }
+
                 return res.status(200)
                     .json({
                         data: {
-                            request: offer,
+                            Offers: offer,
+                            message: 'Ride Offers gotten successfully'
                         },
-                        message: 'Ride Offers gotten successfully',
-                        status: 'success',
+                        status: 'success'
                     });
             })
             .catch((err) => {
-                res.status(500).send(err.message);
+                // res.status(500).send(err.message);
+                if (err) {
+                    return res.status(404)
+                        .json({
+                            error: {
+                                message: err.message
+                            },
+                            status: 'fail'
+                        })
+                }
             });
     }
 
@@ -35,7 +48,7 @@ export default class rideOfferController {
                 if (offer === undefined) {
                     return res.status(404)
                         .json({
-                            message: 'No Ride Offer available',
+                            message: `Ride ${id} not available`,
                             status: 'fail',
                         });
                 }
@@ -60,7 +73,7 @@ export default class rideOfferController {
                 if (newOffer === undefined) {
                     return res.status(404)
                         .json({
-                            message: 'No Ride Offer available',
+                            message: 'Undefined rideoffer cannot be created',
                             status: 'fail',
                         });
                 }
@@ -75,8 +88,7 @@ export default class rideOfferController {
             })
             .catch((err) => {
                 res.status(500).send(err.message);
-            });
-                
+            });                
     }
 
     static createRequestToJoinRide (req,res){
