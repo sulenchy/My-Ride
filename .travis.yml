@@ -1,16 +1,16 @@
 language: node_js
 node_js:
-  - "iojs"
-  - "7"
+ - "node"
 
 install:
   - npm install
+
 script:
   - npm test
 
 
   before_install:
-  - npm i -g npm@version-number
+  - npm i -g npm@latest
 
   cache:
   directories:
