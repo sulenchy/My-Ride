@@ -1,0 +1,45 @@
+{
+  "name": "my-ride",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm run build && mocha server/test/*.js --require babel-register --reporter spec || exit 0",
+    "build": "babel server -d ./dist",
+    "lint": "./node_modules/.bin/eslint server/app.js",
+    "start": "npm run build && babel-node server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sulenchy/My-Ride.git"
+  },
+  "keywords": [
+    "Javascript",
+    "Node",
+    "Express"
+  ],
+  "author": "sulenchy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sulenchy/My-Ride/issues"
+  },
+  "homepage": "https://github.com/sulenchy/My-Ride#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "chai-http": "^4.0.0",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "mocha": "^5.2.0"
+  }
+}
